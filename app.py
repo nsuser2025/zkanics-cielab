@@ -1,33 +1,22 @@
-# -*- coding: utf-8 -*-
 import streamlit as st
-import streamlit.components.v1 as components
-import json
-import os
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import io
+from mkslide.main import mkslide_gui
+from odesolver.main import ode_gui
+from pic2xlsx.main import pic2xlsx_gui
 
-#st.set_page_config(layout="wide")　最大化
+st.image("zkanics_cute_logo.png", caption="Supported by Zkanics F. P. S. since 2024", width=250)
+st.markdown("---")
 
-markdown_contents = {}
-note_paths = {
-    "topics0001": "notes/topics0001.md",
-}
-
-for key, path in note_paths.items():
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            markdown_contents[key] = f.read()
-    except FileNotFoundError:
-        st.error(f"ZKANICS ERROR: note file not found: {path}")
-        st.stop()
-
-markdown_json = json.dumps(markdown_contents)
-
-with open("index.html", encoding="utf-8") as f:
-    html_template = f.read()
-
-html_content = html_template.replace(
-    "// MARKDOWN_DATA_PLACEHOLDER",
-    f"const allMarkdownData = {markdown_json};"
-)
-
-components.html(html_content, height=2000, scrolling=True)
-#components.html(html_content, height=800, width=None, scrolling=True)　最大化
+select = ["MKSLIDE", "ODE Solver", "PIC2XLSX"]
+page = st.selectbox("計算を選択してください", select)
+if page == "MKSLIDE":
+   mkslide_gui ()
+elif page == "ODE Solver":
+   ode_gui ()
+elif page == "PIC2XLSX":
+   pic2xlsx_gui ()
+else:
+   pass

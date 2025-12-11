@@ -86,9 +86,6 @@ def cielab_gui():
     # CSV FILE READER
     uploaded_file = st.file_uploader("透過率スペクトルのExcel/CSVファイルをアップロード", 
                     type=["xlsx", "xls", "xlsm", "csv"])
-    option_form = st.radio("MKSLIDEが作成したCSVファイルですか？", ["Yes", "No"], 
-                           index=1 if st.session_state.data_df is None else 0,
-                           horizontal=True)
 
     if uploaded_file:
        df = mkcsv_gui(uploaded_file)

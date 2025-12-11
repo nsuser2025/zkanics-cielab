@@ -1,5 +1,4 @@
 import streamlit as st
-#import clamd
 import io
 import pandas as pd
 from typing import List
@@ -39,17 +38,6 @@ def safe_open_image(uploaded_file) -> Image.Image:
     buf.seek(0)
     return Image.open(buf)
 
-#def scan_file_with_clamav(uploaded_file) -> bool:
-#    """ClamAV でアップロードファイルをスキャン"""
-#    cd = clamd.ClamdUnixSocket()  # Linux / Dockerで使用
-#    with tempfile.NamedTemporaryFile(delete=False) as tmp:
-#        tmp.write(uploaded_file.getbuffer())
-#        tmp_path = tmp.name
-#    result = cd.scan(tmp_path)
-#    if result is None or "OK" in str(result):
-#        return True
-#    return False
-
 # CSV FILLTERING TOOL
 def get_filtered_names_by_multiselect_full_order(df: pd.DataFrame, condition_id: int, filter_cols: List[str]) -> List[str]:
     
@@ -78,16 +66,11 @@ def mkslide_gui():
 
     # EXPLANATIONS
     st.markdown("#### CIE Lab変換")
-    st.markdown("""CSVファイルに記載された情報をもとに、画像ファイルを条件ごとに抽出・表示するツールです。
-    画像情報が記載されたエクセルファイルをアップロードし「MKSLIDEが作成したCSVファイルですか？」を
-    NoにしてMKSLIDE用のCSVファイルを作成してください。問題なく作成されると表が出力されますので、表の右上のメニューアイコンから
-    ダウンロードしてください。一度作成したCSVファイルは再利用可能です。
-    次に、ダウンロードしたCSVファイルをアップロードして「MKSLIDEが作成したCSVファイルですか？」を
-    Yesにして画像をアップロードしてください。条件を選択すれば、条件と一致したファイルが
-    抽出され表示されます。出力結果はパワーポイントのスライドとしてダウンロード可能です（デフォルトでは白色無地です）。
-    テンプレートをアップロードして、好みのスライドデザインに表示画像を出力することも可能です。このアプリにアップロード
-    した画像は全てメモリ上に保存されます。セッションの終了と同時にサーバー上の画像情報は完全に消去されます。また、
-    出力されるCSVにはコードインジェクションの無効化処理が施されています。安心してダウンロードしてください。""") 
+    st.markdown("""透過率スペクトルをCIE Lab変換するアプリです。
+    このアプリにアップロードした情報は全てメモリ上に保存されます。
+    セッションの終了と同時にサーバー上のスペクトル情報は完全に消去されます。
+    また、出力されるCSVにはコードインジェクションの無効化処理が施されています。
+    安心してダウンロードしてください。""") 
     st.markdown("---")
     
     # INITIALIZE SESSIONS

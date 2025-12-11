@@ -84,41 +84,16 @@ def cielab_gui():
         st.session_state.all_images = {}
 
     # CSV FILE READER
-    uploaded_file = st.file_uploader("Excel/CSVファイルをアップロード", 
+    uploaded_file = st.file_uploader("透過率スペクトルのExcel/CSVファイルをアップロード", 
                     type=["xlsx", "xls", "xlsm", "csv"])
     option_form = st.radio("MKSLIDEが作成したCSVファイルですか？", ["Yes", "No"], 
                            index=1 if st.session_state.data_df is None else 0,
                            horizontal=True)
 
     if uploaded_file:
-       if option_form == "No":
-          df = mkcsv_gui(uploaded_file)
-          df = None 
-          st.session_state.data_df = df
-       elif option_form == "Yes":
-          try:
-             file_name = uploaded_file.name.lower()
-             if file_name.endswith(".csv"):
-                df = pd.read_csv(uploaded_file)
-             elif file_name.endswith((".xlsx", ".xls", ".xlsm")):
-                df = pd.read_excel(uploaded_file, engine="openpyxl")
-             else:
-                raise ValueError("対応していないファイル形式です。")
-             st.session_state.data_df = df
-             df_safe = sanitize_for_csv_injection(df.copy())
-             #st.dataframe(df_safe, use_container_width=True)
-             # 2025/12/03 START
-             df_safe.columns = df_safe.columns.map(str)
-             # 2025/12/03 END 
-             st.dataframe(df_safe, width="content")
-             #df = pd.read_csv(uploaded_file)
-             #st.session_state.data_df = df
-             #df_safe = sanitize_for_csv_injection(df.copy()) 
-             #st.dataframe(df_safe, use_container_width=True) 
-          except Exception as e:
-             st.error(f"CSVファイルの読み込み中にエラーが発生しました: {e}")
-             st.session_state.data_df = None
-             st.stop()
+       df = mkcsv_gui(uploaded_file)
+       df = None 
+       st.session_state.data_df = df
     
     df = st.session_state.data_df
     if df is None:

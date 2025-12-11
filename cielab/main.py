@@ -72,10 +72,10 @@ def cielab_gui():
     uploaded_file = st.file_uploader("透過率スペクトルのExcel/CSVファイルをアップロード", 
                     type=["xlsx", "xls", "xlsm", "csv"])
 
-    if uploaded_file:
-       df = mkcsv_gui(uploaded_file)
-       df = None 
-       st.session_state.data_df = df
+    #if uploaded_file:
+    #   df = mkcsv_gui(uploaded_file)
+    #   df = None 
+    #   st.session_state.data_df = df
     
     df = st.session_state.data_df
     if df is None:

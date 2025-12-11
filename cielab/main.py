@@ -77,8 +77,7 @@ def get_filtered_names_by_multiselect_full_order(df: pd.DataFrame, condition_id:
 def mkslide_gui():
 
     # EXPLANATIONS
-    st.markdown("---")
-    st.markdown("#### MKSLIDE")
+    st.markdown("#### CIE Lab変換")
     st.markdown("""CSVファイルに記載された情報をもとに、画像ファイルを条件ごとに抽出・表示するツールです。
     画像情報が記載されたエクセルファイルをアップロードし「MKSLIDEが作成したCSVファイルですか？」を
     NoにしてMKSLIDE用のCSVファイルを作成してください。問題なく作成されると表が出力されますので、表の右上のメニューアイコンから

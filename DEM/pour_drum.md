@@ -1,4 +1,4 @@
-### in.pour_drum (examples/granular)
+### in.pour.drum (examples/granular)
 
 <p>
 conda create -n lmp -c conda-forge python=3.11 cmake ninja mpich </br>

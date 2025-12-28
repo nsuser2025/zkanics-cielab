@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Zkanics Fluid Mechanics</title>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+window.MathJax = {
+    tex: { 
+        packages: {'[+]': ['ams']}, // amsmath を追加
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    },
+    options: { skipHtmlTags: ['script','style','textarea','pre'] },
+    chtml: { matchFontHeight: false, displayAlign: "left", displayIndent: "2em" },
+    loader: { load: ['[tex]/noerrors'] }
+};
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #note-container { 
+        border: 1px solid #ccc; 
+        padding: 15px; 
+        margin-top: 20px; 
+        background-color: #ffffff;
+        min-height: 200px;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+</head>
+<body>
+
+<h1>Zkanics Notes on DEM</h1>
+
+<label for="chapter-select">topics:</label>
+<select id="chapter-select" onchange="loadMarkdown(this.value)">
+    <option value="" disabled selected>--- 選択してください ---</option>
+    <option value="topics0001">文献調査</option>
+    <option value="topics0002">充填層の流体解析</option>
+    <option value="topics0003">Blount Identity</option>
+    <option value="topics0004">Inhomogeneous OZ Equation</option>
+    <option value="dem_geldart">Geldartの粉体カテゴリー</option>
+    <option value="dem_install">GRANULAR環境構築</option>
+    <option value="dem_parallel">GRANULARの並列計算</option>
+</select>
+
+<div id="note-container">
+    <p>ファイルを選択すると、ここに内容が表示されます。</p>
+</div>
+
+<script>
+    // ----------------------------------------------------------------------
+    // NOTE: この行は、Pythonスクリプトによって実際のMarkdownデータが挿入されます。
+    // 例: const allMarkdownData = {"chapter001": "# 第1章...", "chapter2": "...};
+    // MARKDOWN_DATA_PLACEHOLDER
+    // ----------------------------------------------------------------------
+
+    // Marked.js のオプション設定
+    marked.setOptions({
+        breaks: true,
+        gfm: true,
+    });
+
+    /**
+     * Pythonから渡されたデータからMarkdownをロード
+     * @param {string} key - 読み込むノートのキー (例: 'chapter001')
+     */
+    function loadMarkdown(key) {
+        if (!key) return;
+
+        const container = document.getElementById('note-container');
+
+        // キーに対応するMarkdownコンテンツを取得
+        const markdownText = allMarkdownData[key]; 
+        
+        if (!markdownText) {
+             container.innerHTML = `<p style="color: red;"><strong>エラー: データが見つかりませんでした。</strong></p>`;
+             return;
+        }
+
+        // HTMLに変換
+        container.innerHTML = marked.parse(markdownText);
+        
+        // MathJaxに数式の再レンダリングを要求
+        MathJax.typesetPromise([container]);
+    }
+</script>
+
+</body>
+</html>

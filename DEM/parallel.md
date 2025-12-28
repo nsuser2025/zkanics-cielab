@@ -2,11 +2,8 @@
 
 <p>
 in.pour.drumにおける空間分割の指定 </br></br>
-
 processors * * 1 </br></br>
-
-$\rightarrow$
-x軸, y軸方向はMPIの空間分割を行い, z軸方向はMPI空間分割を行わない.</br>
+$\rightarrow$ x軸, y軸方向はMPIの空間分割を行い, z軸方向はMPI空間分割を行わない.</br>
 mpirun -np 4で実行すると
 processors 2 2 1 
 として解釈され, x-y平面は4分割されるが, z軸方向は空間分割されない.</br></br>

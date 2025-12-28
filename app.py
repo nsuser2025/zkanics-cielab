@@ -10,6 +10,7 @@ markdown_contents = {}
 note_paths = {
     "dem_geldart": "DEM/geldart.md",
     "dem_install": "DEM/install.md",
+    "dem_vtk": "DEM/keyword_vtk.md",
     "dem_parallel": "DEM/parallel.md",
 }
 

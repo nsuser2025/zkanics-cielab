@@ -34,5 +34,7 @@ DEMは, 粒子間の接触力, 摩擦力, および必要に応じて付着力�
 ---
 
 #### Refs.
+<p>
 Geldart1973_Powder.Technol.vol7.285 </br>
-Cocco2023_Powder.Technol.vol428.118861
+Cocco2023_Powder.Technol.vol428.118861  
+</p>

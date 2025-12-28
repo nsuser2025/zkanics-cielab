@@ -31,8 +31,8 @@ Group D（Spoutable）:
 </p>
 
 <figure style="text-align: center;">
-<img src="https://github.com/nsuser2025/zkanics-dem/blob/fed676ca5fd5c131ca3a6dc9f42660953ba24dbb/DEM/geldart.png" alt="Skinner_SFG" width="200">
-<figcaption style="text-align:center;">図1: Skinnerらによる水界面のSFGスペクトル</figcaption>
+<img src="https://raw.githubusercontent.com/nsuser2025/zkanics-dem/main/DEM/geldart.png" alt="GELDART_CLASS" width="200">
+<figcaption style="text-align:center;">Fig. 1 Geldart粒子と流動化挙動 </figcaption>
 </figure>
 
 <p>

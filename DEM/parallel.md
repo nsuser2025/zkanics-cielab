@@ -2,16 +2,13 @@
 
 <p>
 in.pour.drumにおける空間分割の指定 </br></br>
-<span style="color:gray">
-processors * * 1
-</span>
-</br></br>
+
+processors * * 1 </br></br>
+
 $\rightarrow$
 x軸, y軸方向はMPIの空間分割を行い, z軸方向はMPI空間分割を行わない.</br>
 mpirun -np 4で実行すると
-<span style="color:gray">
 processors 2 2 1 
-</span>
 として解釈され, x-y平面は4分割されるが, z軸方向は空間分割されない.</br></br>
 <span style="color:red">
 LAMMPSのGRANULARパッケージでは, MPI並列計算を行うと

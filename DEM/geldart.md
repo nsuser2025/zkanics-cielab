@@ -8,26 +8,17 @@ Geldartの粉体分類とは, 流動層中における粉体の流動化挙動�
 
 <span style="color:gray">
 Group A（Aeratable）: 
-</span>
 粒径 20-100 μm の付着性微粉. 最小流動化速度以上に風を送ると, 気泡が発生する前に層が大きく膨張（エアレーション）する.</br>
-
-<span style="color:gray">
 Group B（Sand-like）:
-</span>
 粒径 40-500 μm の砂やガラスビーズなどの付着力がほぼ無視できる砂型粉体.
 最小流動化速度に達するとすぐに気泡が発生する。</br>
-
-<span style="color:gray">
 Group C（Cohesive）: 
-</span>
 粒径 $<$ 30 μm のタルクやシリカ微粉末などの付着性粉体.
 非常に細かく付着性が強いため, 気泡ができにくく「チャネリング（路作り）」が発生しやすい.</br>
-
-<span style="color:gray">
 Group D（Spoutable）: 
-</span>
 粒径 $>$ 600 μm のペレットや大型ビーズなどの慣性力が支配的で付着力が無視できる
 非常に大きな粒子. 噴流層（Spouted bed）を形成しやすい.
+</span>
 </p>
 
 <figure style="text-align: center;">

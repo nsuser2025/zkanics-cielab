@@ -12,6 +12,7 @@ note_paths = {
     "dem_install": "DEM/install.md",
     "dem_vtk": "DEM/keyword_vtk.md",
     "dem_parallel": "DEM/parallel.md",
+    "dem_stl_format": "DEM/stl_format.md",
 }
 
 for key, path in note_paths.items():

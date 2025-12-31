@@ -12,7 +12,7 @@ Fig. 1のように右ネジの法則で3頂点の座標とメッシュの法線�
 <p>
 </br>
 <span style="color:gray">
-solid 任意の文字列 <br>
+solid 任意の文字列 </br>
 </span>  
 <span style="color:blue">
 facet normal x成分 y成分 z成分 </br>
@@ -21,7 +21,10 @@ vertex x y z </br>
 vertex x y z </br>
 vertex x y z </br>
 end loop </br>
-end facet </br></br>
+end facet </br>
 </span> 
+<span style="color:gray">
+endsolid </br></br>
+</span>  
 青文字の箇所がメッシュの枚数分書かれている.
 </p>
